@@ -3,16 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Práctica de Laboratorio - Monitor de Temperatura ESP32</title>
+    <title>Monitor de Temperatura para Sistema de Audio Automotriz</title>
     
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts: Comfortaa & Quicksand -->
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Tailwind Configuration for Pink Aesthetic -->
     <script>
         tailwind.config = {
             theme: {
@@ -62,12 +58,10 @@
             background: linear-gradient(135deg, #ffe3eb 0%, #ffcddb 100%);
         }
 
-        /* Toast notification animation */
         #toast {
             transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
 
-        /* Pulse ring for temperature sensor */
         @keyframes subtlePulse {
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.03); }
@@ -80,16 +74,13 @@
 
 <body class="text-slate-700 min-h-screen flex flex-col justify-between p-4 sm:p-8">
 
-    <!-- Toast Notification -->
     <div id="toast" class="fixed top-5 right-5 z-50 transform translate-y-[-150%] opacity-0 bg-pastel-600 text-white font-semibold px-5 py-3 rounded-2xl shadow-xl flex items-center gap-3 border-2 border-white">
         <i class="fa-solid fa-heart text-pink-200"></i>
         <span id="toast-message">Texto copiado al portapapeles</span>
     </div>
 
-    <!-- Main Container -->
     <div class="max-w-3xl mx-auto w-full space-y-6">
 
-        <!-- Header / Report Identification Header -->
         <header class="pink-card rounded-3xl p-6 sm:p-8 border-2 border-pastel-300 relative overflow-hidden">
             <div class="absolute -top-6 -right-6 w-24 h-24 bg-pastel-200 rounded-full opacity-50 blur-xl"></div>
             
@@ -107,7 +98,6 @@
                     </p>
                 </div>
 
-                <!-- Student Info Card -->
                 <div class="pink-badge p-3.5 rounded-2xl border border-pastel-300 text-xs text-center sm:text-right min-w-[180px]">
                     <p class="font-bold text-pastel-700 flex items-center justify-center sm:justify-end gap-1">
                         <i class="fa-solid fa-user-astronaut text-pastel-500"></i>
@@ -119,7 +109,6 @@
             </div>
         </header>
 
-        <!-- Step by Step Wi-Fi Connection Section -->
         <section class="pink-card rounded-3xl p-6 sm:p-8 space-y-6">
             <div class="flex items-center gap-3 border-b-2 border-pastel-100 pb-4">
                 <div class="w-10 h-10 rounded-2xl bg-pastel-100 border border-pastel-300 flex items-center justify-center text-pastel-600 text-lg shadow-sm">
@@ -131,10 +120,8 @@
                 </div>
             </div>
 
-            <!-- Steps List -->
             <div class="grid grid-cols-1 gap-4">
 
-                <!-- Step 1: SSID -->
                 <div class="p-4 rounded-2xl bg-pastel-50 border border-pastel-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 transition-transform hover:scale-[1.01]">
                     <div class="flex items-start gap-3">
                         <span class="w-7 h-7 rounded-full bg-pastel-500 text-white font-title font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">1</span>
@@ -149,7 +136,6 @@
                     </button>
                 </div>
 
-                <!-- Step 2: Password -->
                 <div class="p-4 rounded-2xl bg-pastel-50 border border-pastel-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 transition-transform hover:scale-[1.01]">
                     <div class="flex items-start gap-3">
                         <span class="w-7 h-7 rounded-full bg-pastel-500 text-white font-title font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">2</span>
@@ -164,7 +150,6 @@
                     </button>
                 </div>
 
-                <!-- Step 3: URL -->
                 <div class="p-4 rounded-2xl bg-pastel-50 border border-pastel-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 transition-transform hover:scale-[1.01]">
                     <div class="flex items-start gap-3">
                         <span class="w-7 h-7 rounded-full bg-pastel-500 text-white font-title font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">3</span>
@@ -187,7 +172,6 @@
             </div>
         </section>
 
-        <!-- Temperature Live Simulator Panel -->
         <section class="pink-card rounded-3xl p-6 sm:p-8 space-y-6 text-center relative overflow-hidden">
             <div class="flex items-center justify-between border-b-2 border-pastel-100 pb-4">
                 <div class="flex items-center gap-3 text-left">
@@ -200,14 +184,12 @@
                     </div>
                 </div>
 
-                <!-- Auto Refresh Indicator -->
                 <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 text-xs font-bold border border-emerald-200">
                     <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
                     En línea
                 </span>
             </div>
 
-            <!-- Temperature Display Box -->
             <div class="py-4">
                 <div class="inline-block p-8 rounded-full bg-gradient-to-br from-pastel-100 to-pastel-200 border-4 border-pastel-300 pulse-pink shadow-inner relative">
                     <div class="flex flex-col items-center justify-center">
@@ -223,7 +205,6 @@
                 </div>
             </div>
 
-            <!-- Interactive Simulator Controls -->
             <div class="bg-pastel-50 p-4 rounded-2xl border border-pastel-200 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
                 <div class="flex items-center gap-2 text-slate-600 font-medium">
                     <i class="fa-solid fa-arrows-rotate text-pastel-500"></i>
@@ -238,17 +219,13 @@
             </div>
         </section>
 
- 
-        <!-- Footer -->
-        <footer class="text-center py-4 text-xs text-pastel-600 font-medium">
+         <footer class="text-center py-4 text-xs text-pastel-600 font-medium">
             <p>Proyecto desarrollado por <strong>Irving, Daniel, Victoria, Ariel y Jesus.</strong> &bull; ISA</p>
         </footer>
 
     </div>
 
-    <!-- Interactive Logic Script -->
     <script>
-        // Copy to clipboard helper function using document.execCommand fallback
         function copyToClipboard(text, label) {
             const tempInput = document.createElement("input");
             tempInput.value = text;
@@ -260,7 +237,6 @@
             showToast(`¡${label} copiada con éxito!`);
         }
 
-        // Show Toast Notification
         function showToast(message) {
             const toast = document.getElementById('toast');
             const toastMsg = document.getElementById('toast-message');
@@ -275,9 +251,7 @@
             }, 2500);
         }
 
-        // Temperature simulator function
         function simularTemperatura() {
-            // Random temp between 21.0 and 29.5 °C
             const nuevaTemp = (21 + Math.random() * 8.5).toFixed(1);
             const tempElem = document.getElementById('temp-val');
             const statusElem = document.getElementById('status-tag');
@@ -296,7 +270,6 @@
             }
         }
 
-        // Auto update simulator every 2.5 seconds
         setInterval(simularTemperatura, 2500);
     </script>
 </body>
